@@ -48,23 +48,33 @@
     />
   </div>
 
-  <button @click="(publishMessageActive=!publishMessageActive)" class="bg-purple-600 text-white my-9 w-full rounded-md px-2 py-1.5">
+  <button
+    @click="publishMessageActive = !publishMessageActive"
+    class="bg-purple-600 text-white my-9 w-full rounded-md px-2 py-1.5"
+  >
     Save
   </button>
 
   <div
     v-if="publishMessageActive"
-    :class="
-      [messages[publishStatus].class, publishMessageActive ? 'vov flash faster' : '']
-    "
-    class="text-white px-4 py-2 rounded-md text-sm border"
+    :class="[
+      messages[publishStatus].class,
+      publishMessageActive ? 'vov flash faster' : '',
+    ]"
+    class="text-white px-4 py-2 rounded-md text-sm border absolute  bottom-32 grid place-items-center z-999  "
   >
     <i :class="messages[publishStatus].icon" class="mr-3"></i>
     {{ messages[publishStatus].MessageText }}
   </div>
-
- 
 </template>
+<style scoped>
+.z-999{
+z-index: 999;
+width: 100%;
+
+
+}
+</style>
 <script>
 import carlist from "../../assets/carlist.json";
 export default {
